@@ -1,33 +1,27 @@
-# azzammuhyala - Bro
+input = "LVIII"
 
-baris = int(input())
-lagu = [input().split() for _ in range(baris)]
+map = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000
+}
 
-# buat nyari jumlah lirik tiap penyanyi
-# pakek dict (kamus)
-frekuensi = {} # {nama: jumlah_lirik}
-for lirik in lagu:
-    nama = lirik[0]
-    if nama not in frekuensi:
-        frekuensi[nama] = 1
+sum = 0
+
+for i in range(len(input)):
+    bobot = map[input[i]]
+    selanjutnya = i + 1
+    #  +-- ini buat cek apakah indeks selanjutnya lebih kecil dari panjkang input biar gak terjadi error (IndexError)
+    #  |                            +--> bandingin nilai bobot karakter di indeks i sekarang dengan karakter indeks selanjutnya
+    #  |                            |    (aturannya)
+    #  vvvvvvvvvvvvvvvvvvvvvvvv     vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+    if selanjutnya < len(input) and bobot < map[input[selanjutnya]]:
+        sum -= bobot # kalo semua kondisi di atas True (benar) maka kurangi bobot karakter sekarang
     else:
-        frekuensi[nama] += 1
+        sum += bobot # kalo gak ya jumlahin aja
 
-# pakek sorted()
-# urutan = sorted(lagu, key=lambda lirik : frekuensi[lirik[0]], reverse=True)
-
-# pakek method .sort() dari list
-# urutan = lagu
-# urutan.sort(key=lambda lirik : frekuensi[lirik[0]], reverse=True)
-
-# manual (bubble sort)
-urutan = lagu
-for i in range(len(urutan)):
-    for j in range(len(urutan) - 1):
-        if frekuensi[urutan[j][0]] < frekuensi[urutan[j + 1][0]]:
-            urutan[j], urutan[j + 1] = urutan[j + 1], urutan[j]
-
-print('OUTPUT'.center(50, '=')) # boleh di apus cuma jadi separator aja antar input ama output
-# tampilin hasil
-for lirik in urutan:
-    print(' '.join(lirik))
+print(sum)
