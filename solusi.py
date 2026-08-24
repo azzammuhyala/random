@@ -1,6 +1,7 @@
 input = "LVIII"
 
 map = {
+    #    vvvv --> bobot
     'I': 1,
     'V': 5,
     'X': 10,
@@ -8,6 +9,7 @@ map = {
     'C': 100,
     'D': 500,
     'M': 1000
+#   ^^^ --> karakter romawi
 }
 
 sum = 0
