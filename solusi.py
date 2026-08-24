@@ -18,6 +18,11 @@ mapping_romawi = {
 total = 0
 
 for i in range(len(angka_romawi)):
+    #       +--> misalnya i = 0
+    #       |    angka_romawi[i] (karakter pertama) menjadi 'L'
+    #       |    mapping_romawi['L'] menjadi 50 ('L' dari angka_romawi[i])
+    #       |
+    #       vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
     bobot = mapping_romawi[angka_romawi[i]]
     indeks_selanjutnya = i + 1
     #  +-- ini buat cek apakah indeks selanjutnya lebih kecil dari panjkang input biar gak terjadi error (IndexError)
