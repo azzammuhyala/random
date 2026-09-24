@@ -1,5 +1,17 @@
 # @azzammuhyala - Bro
 
+def palindrom(text):
+    end = len(text) - 1 # akhir indeks
+    for i in range(len(text)):
+        if text[i] != text[end - i]:
+            return False
+    return True
+
+
+
+
+# kode solusi ;ama yang romawi
+
 # ILMU baru: len(x) itu mendaaptkan panjang string/list, contoh: mau cari berapa banyak/panjang karakter 'LVIII'? len(...) menghasilkan 5
 
 angka_romawi = "LVIII"
