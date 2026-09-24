@@ -1,5 +1,20 @@
 # @azzammuhyala - Bro
 
+def repeat4Letters(text):
+    last = text[0:1] # kalo text[0] bisa bikin IndexError pas text=''
+    repeat = 0
+
+    for letter in text:
+        if letter == last:
+            repeat += 1
+            if repeat == 4:
+                return True
+            continue
+        last = letter
+        repeat = 1
+
+    return False
+
 def palindrom(text):
     end = len(text) - 1 # akhir indeks
     for i in range(len(text)):
